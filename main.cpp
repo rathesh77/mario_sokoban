@@ -10,7 +10,7 @@
 #include <ctime>
 #include "Levels.h"
 #include "Editor.h"
-
+// g++ *.cpp -o mario `sdl-config --cflags --libs` `pkg-config --cflags --libs SDL_image` 
 int main ( int argc, char** argv )
 {
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
