@@ -16,6 +16,8 @@ all: main.cpp Editor.cpp Editor.h Levels.cpp Levels.h Game.cpp Game.h Menu.h
 #install: 
 #	sudo apt-get install libsdl1.2-dev
 
+.PHONY: clean mrproper
+
 clean:	
 	rm -fr *.o
 
