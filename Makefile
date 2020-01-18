@@ -9,7 +9,6 @@ LDFLAGS=#Linker
 LDLIBS =`sdl-config --libs SDL_image`
 EXEC=mario#Nom du programme 
 
-
 all: main.cpp Editor.cpp Editor.h Levels.cpp Levels.h Game.cpp Game.h Menu.h 
 	${CPP} *.cpp -o ${EXEC} ${CPPFLAGS} && ./$(EXEC)
 
