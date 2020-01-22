@@ -8,17 +8,27 @@ CPPFLAGS=`sdl-config --cflags --libs` `pkg-config --cflags --libs SDL_image`# Fl
 LDFLAGS=#Linker
 LDLIBS =`sdl-config --libs SDL_image`
 EXEC=mario#Nom du programme 
-
-all: main.cpp Editor.cpp Editor.h Levels.cpp Levels.h Game.cpp Game.h Menu.h 
-	${CPP} *.cpp -o ${EXEC} ${CPPFLAGS} && ./$(EXEC)
+SOURCES= main.cpp Editor.cpp Editor.h Levels.cpp Levels.h Game.cpp Game.h Menu.h
 
 #install: 
 #	sudo apt-get install libsdl1.2-dev
-	
-.PHONY: clean mrproper
+
+
+.DEFAULT_GOAL = help
+
+.PHONY: clean mrproper compile exec help
+
+help: script.sh
+	./script.sh
+
+compile: $(SOURCES) 		#Compiler le programme
+	${CPP} *.cpp -o ${EXEC} ${CPPFLAGS}
 
 clean:	
 	rm -fr *.o
 
-mrproper: clean
-	rm -fr ${EXEC}
+mrproper: clean			#supprimer l'executable
+	rm -fr $(EXEC)
+
+exec: ${EXEC}  			#executer le programme 
+	./${EXEC}	
